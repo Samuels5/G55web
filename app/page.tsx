@@ -11,6 +11,7 @@ import {
   TableFooter,
   TableRow,
 } from "@/components/ui/table"
+import Monthly from "./components/Monthly";
 
 const invoices = [
   {
@@ -220,7 +221,8 @@ export default function Home() {
               Monthly Revenue
             </div>
             <div>
-              <svg
+              <Monthly/>
+              {/* <svg
                 viewBox="0 0 359 226"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -322,7 +324,7 @@ export default function Home() {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
-              </svg>
+              </svg> */}
             </div>
           </div>
         </div>

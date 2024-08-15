@@ -18,12 +18,12 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 const chartData = [
-  { month: "2016", desktop: 5000 },
-  { month: "2017", desktop: 25000 },
-  { month: "2018", desktop: 18000 },
-  { month: "2019", desktop: 38000 },
-  { month: "2020", desktop: 21000 },
-  { month: "2021", desktop: 30000 },
+  { month: "2016", desktop: 11000 },
+  { month: "2017", desktop: 18000 },
+  { month: "2018", desktop: 30000 },
+  { month: "2019", desktop: 22000 },
+  { month: "2020", desktop: 26000 },
+  { month: "2020", desktop: 35000 },
 ];
 
 const chartConfig = {
@@ -33,11 +33,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export default function Linechart() {
+export default function Monthly() {
   return (
-    <Card className="border-white ">
-      <CardContent className="bg-white pt-6 ">
-        <ChartContainer config={chartConfig}>
+    <Card>
+      <CardContent className="bg-white">
+        <ChartContainer config={chartConfig} className="pt-6">
           <LineChart
             accessibilityLayer
             data={chartData}
@@ -59,7 +59,7 @@ export default function Linechart() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              // tickFormatter={(value) => value.slice(0, 3)}
+              //   tickFormatter={(value) => value.slice(0, 4)}
             />
             <ChartTooltip
               cursor={false}
@@ -67,11 +67,10 @@ export default function Linechart() {
             />
             <Line
               dataKey="desktop"
-              type="linear"
-              stroke="#FCAA0B"
+              type="natural"
+              stroke="#16DBCC"
               strokeWidth={2}
               dot={false}
-              className="text-[#FCAA0B]"
             />
           </LineChart>
         </ChartContainer>
