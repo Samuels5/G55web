@@ -23,7 +23,7 @@ const chartData = [
   { month: "2018", desktop: 30000 },
   { month: "2019", desktop: 22000 },
   { month: "2020", desktop: 26000 },
-  { month: "2020", desktop: 35000 },
+  { month: "2020", desktop: 40000 },
 ];
 
 const chartConfig = {
@@ -35,9 +35,9 @@ const chartConfig = {
 
 export default function Monthly() {
   return (
-    <Card>
-      <CardContent className="bg-white">
-        <ChartContainer config={chartConfig} className="pt-6">
+    <Card className="bg-white rounded-3xl border-none ">
+      <CardContent className="pt-8 pb-6 ">
+        <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
             data={chartData}
@@ -59,17 +59,17 @@ export default function Monthly() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              //   tickFormatter={(value) => value.slice(0, 4)}
+              // tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={<ChartTooltipContent hideLabel={false} />}
             />
             <Line
               dataKey="desktop"
               type="natural"
               stroke="#16DBCC"
-              strokeWidth={2}
+              strokeWidth={3}
               dot={false}
             />
           </LineChart>

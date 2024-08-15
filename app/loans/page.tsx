@@ -97,8 +97,8 @@ const invoices = [
 export default function Home() {
   return (
     <main className="mt-16 ml-72">
-      <div className="bg-gray-100 p-6">
-        <div className="flex justify-between">
+      <div className="bg-gray-100 p-6 flex-nowrap">
+        <div className="flex justify-between overflow-x-auto">
           <Card1 text="Personal Loans" img="/personal.png" num="$50,000" />
           <Card1 text="Corporate Loans" img="/corporate.png" num="$100,000" />
           <Card1 text="Business Loans" img="/business.png" num="$500,000" />
@@ -113,7 +113,7 @@ export default function Home() {
               <TableHead className="w-[100px] text-[#718EBF]">SL No</TableHead>
               <TableHead className="text-[#718EBF]">Loan Money</TableHead>
               <TableHead className="text-[#718EBF]">Left to repay</TableHead>
-              <TableHead className="text-[#718EBF]">Duration</TableHead>
+              <TableHead className="text-[#718EBF] ">Duration</TableHead>
               <TableHead className="text-[#718EBF]">Interest rate</TableHead>
               <TableHead className="text-[#718EBF]">Installment</TableHead>
               <TableHead className=" text-[#718EBF]">Repay</TableHead>

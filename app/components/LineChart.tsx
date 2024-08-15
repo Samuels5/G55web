@@ -21,7 +21,7 @@ const chartData = [
   { month: "2016", desktop: 5000 },
   { month: "2017", desktop: 25000 },
   { month: "2018", desktop: 18000 },
-  { month: "2019", desktop: 38000 },
+  { month: "2019", desktop: 40000 },
   { month: "2020", desktop: 21000 },
   { month: "2021", desktop: 30000 },
 ];
@@ -35,8 +35,8 @@ const chartConfig = {
 
 export default function Linechart() {
   return (
-    <Card className="border-white ">
-      <CardContent className="bg-white pt-6 ">
+    <Card className="bg-white rounded-3xl border-none ">
+      <CardContent className="pt-8 pb-6 w-full">
         <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
@@ -63,15 +63,14 @@ export default function Linechart() {
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={<ChartTooltipContent hideLabel={false} />}
             />
             <Line
               dataKey="desktop"
               type="linear"
               stroke="#FCAA0B"
-              strokeWidth={2}
-              dot={false}
-              className="text-[#FCAA0B]"
+              strokeWidth={3}
+              dot={true}
             />
           </LineChart>
         </ChartContainer>
@@ -79,3 +78,5 @@ export default function Linechart() {
     </Card>
   );
 }
+
+
