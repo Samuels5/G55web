@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Card1 from "./components/Card1";
+import Chart from "./components/LineChart";
 import {
   Table,
   TableBody,
@@ -58,8 +59,9 @@ export default function Home() {
             <div className="my-4 text-2xl font-bold text-[#333B69]">
               Yearly Total Investment
             </div>
+            <Chart/>
             <div className="rounded-lg p-1">
-              <svg
+              {/* <svg
                 className=""
                 viewBox="0 0 359 226"
                 fill="none"
@@ -210,7 +212,7 @@ export default function Home() {
                   stroke="#EDA10D"
                   stroke-width="2.5"
                 />
-              </svg>
+              </svg> */}
             </div>
           </div>
           <div className="col-span-1">
