@@ -98,7 +98,7 @@ export default function Home() {
   return (
     <main className="mt-16 ml-72">
       <div className="bg-gray-100 p-6">
-        <div className="flex justify-between gap-8">
+        <div className="flex justify-between">
           <Card1 text="Personal Loans" img="/personal.png" num="$50,000" />
           <Card1 text="Corporate Loans" img="/corporate.png" num="$100,000" />
           <Card1 text="Business Loans" img="/business.png" num="$500,000" />

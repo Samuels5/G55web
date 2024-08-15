@@ -8,7 +8,7 @@ interface Card1Props {
 }
 const Card1 = ({text, num, img}: Card1Props) => {
   return (
-    <div className="rounded-2xl p-4 shadow-sm bg-white">
+    <div className="rounded-2xl p-4 mx-2 shadow-sm bg-white w-[100%]">
       <div className=" flex justify-center items-center">
         <div className="flex justify-center items-center">
           <div>
@@ -16,7 +16,7 @@ const Card1 = ({text, num, img}: Card1Props) => {
           </div>
           <div className="pl-4 ">
             <div className="text-[#718EBF] text-sm">{text}</div>
-            <div className="text-[#232323] font-semibold text-xl">{num}</div>
+            <div className="text-[#232323] font-semibold text-lg">{num}</div>
           </div>
         </div>
       </div>
