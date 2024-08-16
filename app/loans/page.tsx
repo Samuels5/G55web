@@ -96,7 +96,7 @@ const invoices = [
 
 export default function Home() {
   return (
-    <main className="mt-16 ml-72">
+    // <main className="mt-16 ml-72">
       <div className="bg-gray-100 p-6 flex-nowrap">
         <div className="flex justify-between overflow-x-auto">
           <Card1 text="Personal Loans" img="/personal.png" num="$50,000" />
@@ -202,6 +202,6 @@ export default function Home() {
           </TableBody>
         </Table>
       </div>
-    </main>
+    // </main>
   );
 }
