@@ -54,17 +54,25 @@ const invoices = [
     return: "-12%",
   },
 ];
+interface arr {
+  time: string;
+  value: number;
+}  
 const loanid="66c3054e80b7cf4a6c2f7709";
-const token ="eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsc2FqZGxzanNuIiwiaWF0IjoxNzI0MTU1NzkzLCJleHAiOjE3MjQyNDIxOTN9.wi7oRgF81zMp1v8tPzRPmAj4GOLaYy4bV_TMVvtWmzg2mjrTThiruT_Fswcyu1eq";
 
 export default async function Home() {
-  const data: {totalInvestment:number; rateOfReturn: number; yearlyTotalInvestment:[{time: string, value: number}];monthlyRevenue:[time:string, value: number]} = await getRandomInvestementData(11,2021,token);   
+  const token ="eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsc2FqZGxzanNuIiwiaWF0IjoxNzI0MTU1NzkzLCJleHAiOjE3MjQyNDIxOTN9.wi7oRgF81zMp1v8tPzRPmAj4GOLaYy4bV_TMVvtWmzg2mjrTThiruT_Fswcyu1eq";
+  const data: {totalInvestment:number; rateOfReturn: number; yearlyTotalInvestment:[{time: string, value: number}];monthlyRevenue:arr[]} = await getRandomInvestementData(11,2021,token);   
   console.log('s',data);    
   return (
     // <main className="mt-16 ml-72">
     <div className="bg-gray-100 p-6">
       <div className="flex justify-between flex-wrap lg:flex-nowrap">
-        <Card1 text="Total Invested Amount" img="/total.png" num={data.totalInvestment} />
+        <Card1
+          text="Total Invested Amount"
+          img="/total.png"
+          num={data.totalInvestment}
+        />
         <Card1 text="Number of Investments" img="/number.png" num="1,250" />
         <Card1 text="Rate of Return" img="/rate.png" num={data.rateOfReturn} />
       </div>
@@ -81,7 +89,7 @@ export default async function Home() {
             Monthly Revenue
           </div>
           <div>
-            <Monthly />
+            <Monthly token={token} />
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@
 
 import { TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
+import { useEffect, useState } from "react";
+import { getRandomInvestementData } from "../loans/back/Invest";
 
 import {
   Card,
@@ -17,30 +19,55 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/app/loans/components/chart";
-const chartData = [
-  { month: "2016", desktop: 11000 },
-  { month: "2017", desktop: 18000 },
-  { month: "2018", desktop: 30000 },
-  { month: "2019", desktop: 22000 },
-  { month: "2020", desktop: 26000 },
-  { month: "2020", desktop: 40000 },
-];
-
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  value: {
+    label: "value",
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
+interface arr {
+  time: string;
+  value: number;
+}  
+const token ="eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsc2FqZGxzanNuIiwiaWF0IjoxNzI0MTU1NzkzLCJleHAiOjE3MjQyNDIxOTN9.wi7oRgF81zMp1v8tPzRPmAj4GOLaYy4bV_TMVvtWmzg2mjrTThiruT_Fswcyu1eq";
+
+interface info {
+  totalInvestment: number;
+  rateOfReturn: number;
+  yearlyTotalInvestment: arr[];
+  monthlyRevenue: arr[];
+}
 
 export default function Monthly() {
+  const [jobs, setjobs] = useState<info>({});
+  const [Loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getRandomInvestementData(11, 2021, token);
+        // console.log(data);
+        setjobs(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+  if (Loading) {
+    return <div>loading</div>;
+  }
+  console.log(jobs);
+  const { monthlyRevenue } = jobs;
   return (
     <Card className="bg-white rounded-3xl border-none ">
       <CardContent className="pt-8 pb-6 ">
         <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
-            data={chartData}
+            data={monthlyRevenue}
             margin={{
               left: 12,
               right: 12,
@@ -48,14 +75,14 @@ export default function Monthly() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="time"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 4)}
             />
             <YAxis
-              dataKey="desktop"
+              dataKey="value"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -66,7 +93,7 @@ export default function Monthly() {
               content={<ChartTooltipContent hideLabel={false} />}
             />
             <Line
-              dataKey="desktop"
+              dataKey="value"
               type="natural"
               stroke="#16DBCC"
               strokeWidth={3}
