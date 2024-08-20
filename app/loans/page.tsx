@@ -35,7 +35,7 @@ export default async function Home() {
   const f = await activeloansall(token);  
   // console.log("asa1111", f);  
     const data: loantype = await activeloansdetaildata(token);
-    console.log("s", data); 
+    // console.log("s", data); 
   
   return (
     // <main className="mt-16 ml-72">

@@ -39,7 +39,12 @@ interface info {
 }
 
 export default function Monthly() {
-  const [jobs, setjobs] = useState<info>({});
+  const [jobs, setjobs] = useState<info>({
+    totalInvestment: 0,
+    rateOfReturn: 0,
+    yearlyTotalInvestment: [], // Initialize as an empty array
+    monthlyRevenue: [], // Initialize as an empty array
+  });
   const [Loading, setLoading] = useState(true);
 
   useEffect(() => {

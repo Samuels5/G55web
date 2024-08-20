@@ -19,14 +19,6 @@ import {
 } from "@/app/loans/components/chart";
 import { getRandomInvestementData } from "../loans/back/Invest";
 import { useEffect, useState } from "react";
-const chartData = [
-  { month: "2016", desktop: 5000 },
-  { month: "2017", desktop: 25000 },
-  { month: "2018", desktop: 18000 },
-  { month: "2019", desktop: 40000 },
-  { month: "2020", desktop: 21000 },
-  { month: "2021", desktop: 30000 },
-];
 interface arr {
   time: string;
   value: number;
@@ -48,7 +40,12 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function Linechart() {
-  const [jobs, setjobs] = useState<info>({});
+  const [jobs, setjobs] = useState<info>({
+    totalInvestment: 0,
+    rateOfReturn: 0,
+    yearlyTotalInvestment: [], // Initialize as an empty array
+    monthlyRevenue: [], // Initialize as an empty array
+  });
   const [Loading, setLoading] = useState(true);
 
   useEffect(() => {

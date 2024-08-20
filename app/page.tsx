@@ -1,16 +1,7 @@
 import Card1 from "./components/Card1";
 import Linechart from "./components/LineChart";
 import Monthly from "./components/Monthly";
-import { getRandomInvestementData } from "./loans/back/Invest";
-import {
-  activeloansall,
-  activeloansdetaildata,
-  activeloansmyloans,
-  activeloansid,
-  activeloansidapprove,
-  activeloansidreject,
-  activeloans,
-} from "./loans/back/ActiveLoanController";
+import { getRandomInvestementData } from "./back/Invest";
 import {
   Table,
   TableBody,
@@ -63,7 +54,7 @@ const loanid="66c3054e80b7cf4a6c2f7709";
 export default async function Home() {
   const token ="eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsc2FqZGxzanNuIiwiaWF0IjoxNzI0MTU1NzkzLCJleHAiOjE3MjQyNDIxOTN9.wi7oRgF81zMp1v8tPzRPmAj4GOLaYy4bV_TMVvtWmzg2mjrTThiruT_Fswcyu1eq";
   const data: {totalInvestment:number; rateOfReturn: number; yearlyTotalInvestment:[{time: string, value: number}];monthlyRevenue:arr[]} = await getRandomInvestementData(11,2021,token);   
-  console.log('s',data);    
+  // console.log('s',data);    
   return (
     // <main className="mt-16 ml-72">
     <div className="bg-gray-100 p-6">
