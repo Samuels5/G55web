@@ -79,7 +79,7 @@ export default function Monthly() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 4)}
+              tickFormatter={(value) => value.slice(0, 7)}
             />
             <YAxis
               dataKey="value"
