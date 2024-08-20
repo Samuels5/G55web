@@ -10,13 +10,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/app/loans/components/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/app/loans/components/chart";
 const chartData = [
   { month: "2016", desktop: 5000 },
   { month: "2017", desktop: 25000 },
@@ -78,5 +78,3 @@ export default function Linechart() {
     </Card>
   );
 }
-
-

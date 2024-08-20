@@ -1,6 +1,15 @@
-import Image from "next/image";
 import Card1 from "./components/Card1";
 import Linechart from "./components/LineChart";
+import Monthly from "./components/Monthly";
+import {
+  activeloansall,
+  activeloansdetaildata,
+  activeloansmyloans,
+  activeloansid,
+  activeloansidapprove,
+  activeloansidreject,
+  activeloans,
+} from "./loans/back/ActiveLoanController";
 import {
   Table,
   TableBody,
@@ -10,8 +19,7 @@ import {
   TableHeader,
   TableFooter,
   TableRow,
-} from "@/components/ui/table"
-import Monthly from "./components/Monthly";
+} from "@/app/loans/components/table";
 
 const invoices = [
   {
@@ -44,9 +52,13 @@ const invoices = [
     price: "$670",
     return: "-12%",
   },
-]
+];
+const loanid="66c3054e80b7cf4a6c2f7709";
+const token ="eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsc2FqZGxzanNuIiwiaWF0IjoxNzI0MTU1NzkzLCJleHAiOjE3MjQyNDIxOTN9.wi7oRgF81zMp1v8tPzRPmAj4GOLaYy4bV_TMVvtWmzg2mjrTThiruT_Fswcyu1eq";
 
-export default function Home() {
+export default async function Home() {
+  const data = await activeloansall( token);   
+  console.log('s',data); 
   return (
     // <main className="mt-16 ml-72">
     <div className="bg-gray-100 p-6">
@@ -193,7 +205,7 @@ export default function Home() {
                 </svg>
               </div>
               <div className="pl-2">
-                <div className="text-sm lg:text-base font-medium t-[#232323]" >
+                <div className="text-sm lg:text-base font-medium t-[#232323]">
                   Tesla Motors
                 </div>
                 <div className="text-xs lg:text-sm text-[#718EBF]">
@@ -226,7 +238,7 @@ export default function Home() {
           <Table className="bg-white shadow-1 rounded-3xl">
             <TableHeader>
               <TableRow className="text-[#718EBF] p1">
-                <TableHead className="w-[100px] text-[#718EBF] h1">
+                <TableHead className="w-[100px] text-[#718EBF] h1 hidden md:table-cell">
                   SL No
                 </TableHead>
                 <TableHead className="text-[#718EBF]">Name</TableHead>

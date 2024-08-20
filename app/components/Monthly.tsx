@@ -10,13 +10,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/app/loans/components/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/app/loans/components/chart";
 const chartData = [
   { month: "2016", desktop: 11000 },
   { month: "2017", desktop: 18000 },
