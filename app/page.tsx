@@ -1,6 +1,7 @@
 import Card1 from "./components/Card1";
 import Linechart from "./components/LineChart";
 import Monthly from "./components/Monthly";
+import { getRandomInvestementData } from "./loans/back/Invest";
 import {
   activeloansall,
   activeloansdetaildata,
@@ -57,15 +58,15 @@ const loanid="66c3054e80b7cf4a6c2f7709";
 const token ="eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsc2FqZGxzanNuIiwiaWF0IjoxNzI0MTU1NzkzLCJleHAiOjE3MjQyNDIxOTN9.wi7oRgF81zMp1v8tPzRPmAj4GOLaYy4bV_TMVvtWmzg2mjrTThiruT_Fswcyu1eq";
 
 export default async function Home() {
-  const data = await activeloansall( token);   
-  console.log('s',data); 
+  const data: {totalInvestment:number; rateOfReturn: number; yearlyTotalInvestment:[{time: string, value: number}];monthlyRevenue:[time:string, value: number]} = await getRandomInvestementData(11,2021,token);   
+  console.log('s',data);    
   return (
     // <main className="mt-16 ml-72">
     <div className="bg-gray-100 p-6">
       <div className="flex justify-between flex-wrap lg:flex-nowrap">
-        <Card1 text="Total Invested Amount" img="/total.png" num="$150,000" />
+        <Card1 text="Total Invested Amount" img="/total.png" num={data.totalInvestment} />
         <Card1 text="Number of Investments" img="/number.png" num="1,250" />
-        <Card1 text="Rate of Return" img="/rate.png" num="+5.80%" />
+        <Card1 text="Rate of Return" img="/rate.png" num={data.rateOfReturn} />
       </div>
       <div className="grid grid-cols-2 gap-6">
         <div className="col-span-2 lg:col-span-1">
