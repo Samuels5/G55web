@@ -89,7 +89,7 @@ export default async function Home() {
             Monthly Revenue
           </div>
           <div>
-            <Monthly token={token} />
+            <Monthly/>
           </div>
         </div>
       </div>
