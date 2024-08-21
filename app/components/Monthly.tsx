@@ -3,7 +3,7 @@
 import { TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { useEffect, useState } from "react";
-import { getRandomInvestementData } from "../loans/back/Invest";
+import { getRandomInvestementData } from "../back/Invest";
 
 import {
   Card,

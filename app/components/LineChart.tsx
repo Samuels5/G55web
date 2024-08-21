@@ -17,7 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/app/loans/components/chart";
-import { getRandomInvestementData } from "../loans/back/Invest";
+import { getRandomInvestementData } from "../back/Invest";
 import { useEffect, useState } from "react";
 interface arr {
   time: string;
